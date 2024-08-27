@@ -1,3 +1,6 @@
+# PlayDate Metroidvania tutorial
+I'll be using this project to follow Squid God's [PlayDate Metroidvania tutorial](https://www.youtube.com/watch?v=7GbUxjE9rRM&t). I'm also using the super handy [PlayDate VS Code template](https://github.com/Whitebrim/VSCode-PlaydateTemplate) created by Whitebrim. The text below is the Readme for that template. I'll update that as I continue development, but will keep it here for now as a reference.
+
 <img src="https://media.giphy.com/media/QhNgpDotBASjWj7asJ/giphy.gif" width="800" height="480" />
 
 # Installation (Windows):  

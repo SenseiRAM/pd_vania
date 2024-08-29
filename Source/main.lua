@@ -6,10 +6,12 @@ import "CoreLibs/timer"
 
 -- Libraries
 import "scripts/libraries/AnimatedSprite"
-import " scripts/libraries/LDtk"
+import "scripts/libraries/LDtk"
 
 -- Game
 import "scripts/GameScene.lua"
+
+GameScene()
 
 local pd <const> = playdate
 local gfx <const> = playdate.graphics

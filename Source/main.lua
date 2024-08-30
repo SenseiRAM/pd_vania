@@ -9,7 +9,8 @@ import "scripts/libraries/AnimatedSprite"
 import "scripts/libraries/LDtk"
 
 -- Game
-import "scripts/GameScene.lua"
+import "scripts/GameScene"
+import "scripts/player"
 
 GameScene()
 

@@ -14,10 +14,10 @@ function Player:init(x, y)
     self:playAnimation()
 
     -- Sprite Properties
-    self:move(x, y)
+    self:moveTo(x, y)
     self:setZIndex(Z_INDEXES.Player)
     self:setTag(TAGS.Player)
-    self:setCollideREct(3, 3, 10, 13)
+    self:setCollideRect(3, 3, 10, 13)
 
     -- Physics Properties
     self.xVelocity = 0
@@ -55,4 +55,46 @@ end
 function Player:handleMovementAndCollisions()
     local _, _, collisions, length = self:moveWithCollisions(self.x + self.xVelocity, self.y + self.yVelocity)
     
+    self.touchingGround = false
+    for i=1, length do
+        local collision = collisions[i]
+        if collision.normal.y == -1 then
+            self.touchingGround = true
+        end
+    end
+end
+
+-- Input Helpter Functions
+function Player:handleGroundInput()
+    if pd.buttonIsPressed(pd.kButtonLeft) then
+        self:changeToRunState("left")
+    elseif pd.buttonIsPressed(pd.kButtonRight) then
+        self:changeToRunState("right")
+    else
+        self:changeToIdleState()
+    end
+
+end
+
+-- State transitions
+function Player:changeToIdleState()
+    self.xVelocity = 0
+    self:changeState("idle")
+end
+
+function Player:changeToRunState(direction)
+    if direction == "left" then
+        self.xVelocity = -self.maxSpeed
+    elseif direction == "right" then
+        self.xVelocity = self.maxSpeed
+    end
+    self.changeState("run")
+end
+
+-- Physics Helper Functions
+function Player:applyGravity()
+    self.yVelocity += self.gravity
+    if self.touchingGround then
+        self.yVelocity = 0
+    end
 end

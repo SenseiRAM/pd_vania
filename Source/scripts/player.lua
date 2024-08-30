@@ -1,5 +1,5 @@
+local pd <const> = playdate
 local gfx <const> = playdate.graphics
-local ldtk <const> = LDtk
 
 class("Player").extends(AnimatedSprite)
 
@@ -34,7 +34,7 @@ function Player:collisionResponse()
 end
 
 function Player:update()
-    self.updateAnimation()
+    self:updateAnimation()
 
     self:handleState()
     self:handleMovementAndCollisions()
@@ -48,7 +48,6 @@ function Player:handleState()
         self:applyGravity()
         self:handleGroundInput()
     elseif self.currentState == "jump" then
-
     end    
 end
 

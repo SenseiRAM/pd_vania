@@ -61,6 +61,12 @@ function Player:handleMovementAndCollisions()
             self.touchingGround = true
         end
     end
+
+    if self.xVelocity < 0 then
+        self.globalFlip = 1
+    elseif self.xVelocity > 0 then
+        self.globalFlip = 0
+    end
 end
 
 -- Input Helpter Functions
@@ -84,10 +90,12 @@ end
 function Player:changeToRunState(direction)
     if direction == "left" then
         self.xVelocity = -self.maxSpeed
+        self.globalFlip = 1
     elseif direction == "right" then
         self.xVelocity = self.maxSpeed
+        self.globalFlip = 0
     end
-    self.changeState("run")
+    self:changeState("run")
 end
 
 -- Physics Helper Functions

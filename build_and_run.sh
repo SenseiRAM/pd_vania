@@ -8,6 +8,7 @@ if [[ -z $NOCOLOR && -n $(command -v tput) ]]; then
     RST=$(tput sgr0)
 fi
 
+
 function display_help() {
     printf "%s\n\n" "${0} build|run|-h|--help|"
     printf "%-16s\n" "build: Builds the project and runs the Simulator"

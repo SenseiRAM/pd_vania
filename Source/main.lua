@@ -1,3 +1,4 @@
+-- Comment
 -- CoreLibs
 import "CoreLibs/object"
 import "CoreLibs/graphics"

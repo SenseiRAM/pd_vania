@@ -24,9 +24,14 @@ function Player:init(x, y)
     self.yVelocity = 0
     self.gravity = 1.0
     self.maxSpeed = 2.0
+    self.jumpVelocity = -6
+    self.drag = 0.1
+    self.minimumAirSpeed = 0.5
 
     -- Player State
     self.touchingGround = false
+    self.touchingCeiling = false
+    self.touchingWall = false
 end
 
 function Player:collisionResponse()
@@ -48,17 +53,29 @@ function Player:handleState()
         self:applyGravity()
         self:handleGroundInput()
     elseif self.currentState == "jump" then
+        if self.touchingGround then
+            self:changeToIdleState()
+        end
+        self:applyGravity()
+        self:applyDrag(self.drag)
+        self:handleAirInput()
     end    
 end
 
 function Player:handleMovementAndCollisions()
     local _, _, collisions, length = self:moveWithCollisions(self.x + self.xVelocity, self.y + self.yVelocity)
-    
+
+
     self.touchingGround = false
+    self.touchingCeiling = false
+    self.touchingWall = false
+
     for i=1, length do
         local collision = collisions[i]
         if collision.normal.y == -1 then
             self.touchingGround = true
+        elseif collision.normal.y == 1 then
+            self.touchingCeiling = true
         end
     end
 
@@ -71,7 +88,9 @@ end
 
 -- Input Helpter Functions
 function Player:handleGroundInput()
-    if pd.buttonIsPressed(pd.kButtonLeft) then
+    if pd.buttonJustPressed(pd.kButtonA) then
+        self:changeToJumpState()
+    elseif pd.buttonIsPressed(pd.kButtonLeft) then
         self:changeToRunState("left")
     elseif pd.buttonIsPressed(pd.kButtonRight) then
         self:changeToRunState("right")
@@ -79,6 +98,15 @@ function Player:handleGroundInput()
         self:changeToIdleState()
     end
 
+end
+
+function Player:handleAirInput()
+    if pd.buttonIsPressed(pd.kButtonLeft) then
+        self.xVelocity = -self.maxSpeed
+    elseif pd.buttonIsPressed(pd.kButtonRight) then
+        self.xVelocity = self.maxSpeed
+    end
+    
 end
 
 -- State transitions
@@ -96,6 +124,12 @@ function Player:changeToRunState(direction)
         self.globalFlip = 0
     end
     self:changeState("run")
+end
+
+function Player:changeToJumpState()
+    self.yVelocity = self.jumpVelocity
+    self:changeState("jump")
+    
 end
 
 -- Physics Helper Functions

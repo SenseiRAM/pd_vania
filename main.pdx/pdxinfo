@@ -1,8 +1,8 @@
-name=PDVania
+name=Template
 author=You
 description=This is template project
-bundleID=com.pdvania.pdv1
-version=0.0.4
-buildNumber=3
+bundleID=com.organization.package
+version=0.0.1
+buildNumber=1
 pdxversion=20500
-buildtime=778342708
+buildtime=778860869

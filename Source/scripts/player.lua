@@ -3,7 +3,8 @@ local gfx <const> = playdate.graphics
 
 class("Player").extends(AnimatedSprite)
 
-function Player:init(x, y)
+function Player:init(x, y, gameManager)
+    self.gameManager = gameManager
     -- State Machine
     local playerImageTable = gfx.imagetable.new("images/player-table-16-16.png")
     Player.super.init(self, playerImageTable)
@@ -84,7 +85,6 @@ end
 function Player:handleMovementAndCollisions()
     local _, _, collisions, length = self:moveWithCollisions(self.x + self.xVelocity, self.y + self.yVelocity)
 
-
     self.touchingGround = false
     self.touchingCeiling = false
     self.touchingWall = false
@@ -104,6 +104,16 @@ function Player:handleMovementAndCollisions()
         self.globalFlip = 1
     elseif self.xVelocity > 0 then
         self.globalFlip = 0
+    end
+
+    if self.x < 0 then
+        self.gameManager:enterRoom("west")
+    elseif self.x > 400 then
+        self.gameManager:enterRoom("east")
+    elseif self.y < 0  then
+        self.gameManager:enterRoom("north")
+    elseif self.y > 240 then
+        self.gameManager:enterRoom("south")
     end
 end
 

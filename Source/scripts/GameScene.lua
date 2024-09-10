@@ -35,7 +35,7 @@ function GameScene:enterRoom(direction)
     elseif direction == "west" then
         spawnX, spawnY = 400, self.player.y
     end
-    self.player:moveTo(spawnx, spawnY)
+    self.player:moveTo(spawnX, spawnY)
     self.spawnX = spawnX
     self.spawnY = spawnY
 end

@@ -23,6 +23,10 @@ function GameScene:init()
     self.player = Player(self.spawnX, self.spawnY, self)
 end
 
+function GameScene:resetPlayer()
+    self.player:moveTo(self.spawnX, self.spawnY)
+end
+
 function GameScene:enterRoom(direction)
     local level = ldtk.get_neighbours(self.levelName, direction)[1]
     self:goToLevel(level)
@@ -63,5 +67,17 @@ function GameScene:goToLevel(level_name)
 
             end
         end
+    end
+ 
+    for _, entity in ipairs(ldtk.get_entities(level_name)) do
+        print(entity.fields)
+        local entityX, entityY = entity.position.x, entity.position.y
+        local entityName = entity.name
+        if entityName == "Spike" then
+            Spike(entityX, entityY)
+        elseif entityName == "Spikeball" then
+            Spikeball(entityX, entityY, entity)
+        end
+
     end
 end

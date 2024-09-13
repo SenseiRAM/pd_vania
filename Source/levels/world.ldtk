@@ -1459,6 +1459,41 @@
 							"fieldInstances": [],
 							"__worldX": 464,
 							"__worldY": 176
+						},
+						{
+							"__identifier": "Spikeball",
+							"__grid": [18,14],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#D77643",
+							"iid": "07e0c0a0-4ce0-11ef-8bc3-7bc156d436c1",
+							"width": 16,
+							"height": 16,
+							"defUid": 27,
+							"px": [288,224],
+							"fieldInstances": [
+								{ "__identifier": "xVelocity", "__type": "Float", "__value": 5, "__tile": null, "defUid": 28, "realEditorValues": [{ "id": "V_Float", "params": [5] }] },
+								{ "__identifier": "yVelocity", "__type": "Float", "__value": 0, "__tile": null, "defUid": 29, "realEditorValues": [] }
+							],
+							"__worldX": 688,
+							"__worldY": 224
+						},
+						{
+							"__identifier": "Spike",
+							"__grid": [22,13],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "105954e0-4ce0-11ef-8bc3-ebf46a61561b",
+							"width": 16,
+							"height": 16,
+							"defUid": 26,
+							"px": [352,208],
+							"fieldInstances": [],
+							"__worldX": 752,
+							"__worldY": 208
 						}
 					]
 				},
@@ -1922,7 +1957,110 @@
 					"seed": 1807905,
 					"overrideTilesetUid": null,
 					"gridTiles": [],
-					"entityInstances": []
+					"entityInstances": [
+						{
+							"__identifier": "Spike",
+							"__grid": [17,6],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "14cdc600-4ce0-11ef-8bc3-11d64c3abc06",
+							"width": 16,
+							"height": 16,
+							"defUid": 26,
+							"px": [272,96],
+							"fieldInstances": [],
+							"__worldX": 672,
+							"__worldY": 336
+						},
+						{
+							"__identifier": "Spike",
+							"__grid": [11,13],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "18e80930-4ce0-11ef-8bc3-756f9892041a",
+							"width": 16,
+							"height": 16,
+							"defUid": 26,
+							"px": [176,208],
+							"fieldInstances": [],
+							"__worldX": 576,
+							"__worldY": 448
+						},
+						{
+							"__identifier": "Spike",
+							"__grid": [10,13],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "1944f640-4ce0-11ef-8bc3-f580995ae3d3",
+							"width": 16,
+							"height": 16,
+							"defUid": 26,
+							"px": [160,208],
+							"fieldInstances": [],
+							"__worldX": 560,
+							"__worldY": 448
+						},
+						{
+							"__identifier": "Spike",
+							"__grid": [9,13],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "19bb10a0-4ce0-11ef-8bc3-73dcd817f5d1",
+							"width": 16,
+							"height": 16,
+							"defUid": 26,
+							"px": [144,208],
+							"fieldInstances": [],
+							"__worldX": 544,
+							"__worldY": 448
+						},
+						{
+							"__identifier": "Spikeball",
+							"__grid": [5,4],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#D77643",
+							"iid": "1e812430-4ce0-11ef-8bc3-e50176779ac1",
+							"width": 16,
+							"height": 16,
+							"defUid": 27,
+							"px": [80,64],
+							"fieldInstances": [
+								{ "__identifier": "xVelocity", "__type": "Float", "__value": 0, "__tile": null, "defUid": 28, "realEditorValues": [] },
+								{ "__identifier": "yVelocity", "__type": "Float", "__value": 5, "__tile": null, "defUid": 29, "realEditorValues": [{ "id": "V_Float", "params": [5] }] }
+							],
+							"__worldX": 480,
+							"__worldY": 304
+						},
+						{
+							"__identifier": "Spikeball",
+							"__grid": [6,13],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#D77643",
+							"iid": "1f056f60-4ce0-11ef-8bc3-7b88a572dca4",
+							"width": 16,
+							"height": 16,
+							"defUid": 27,
+							"px": [96,208],
+							"fieldInstances": [
+								{ "__identifier": "xVelocity", "__type": "Float", "__value": 0, "__tile": null, "defUid": 28, "realEditorValues": [] },
+								{ "__identifier": "yVelocity", "__type": "Float", "__value": -5, "__tile": null, "defUid": 29, "realEditorValues": [{ "id": "V_Float", "params": [-5] }] }
+							],
+							"__worldX": 496,
+							"__worldY": 448
+						}
+					]
 				},
 				{
 					"__identifier": "Walls",

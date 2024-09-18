@@ -3,12 +3,14 @@ local ldtk <const> = LDtk
 
 TAGS = {
     Player = 1,
-    Hazard = 2
+    Hazard = 2,
+    Pickup = 3,
 }
 
 Z_INDEXES = {
     Player = 100,
-    Hazard = 20
+    Hazard = 20,
+    Pickup = 50
 }
 
 ldtk.load("levels/world.ldtk", false)
@@ -69,15 +71,21 @@ function GameScene:goToLevel(level_name)
         end
     end
  
+-- TODO Make entity spawning dynamic instead of static
+-- Research how to convert string to function name
     for _, entity in ipairs(ldtk.get_entities(level_name)) do
         print(entity.fields)
         local entityX, entityY = entity.position.x, entity.position.y
         local entityName = entity.name
-        if entityName == "Spike" then
+        _G[entityName](entityX, entityY, entity)
+        -- Original code for spawning hazards
+        --[[if entityName == "Spike" then
             Spike(entityX, entityY)
         elseif entityName == "Spikeball" then
             Spikeball(entityX, entityY, entity)
+        elseif entityName == "Ability" then
+            Ability(enttyX, entityY, entity)
         end
-
+        ]]--
     end
 end

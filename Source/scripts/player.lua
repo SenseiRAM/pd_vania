@@ -31,8 +31,8 @@ function Player:init(x, y, gameManager)
     self.minimumAirSpeed = 0.5
 
     -- Abilities
-    self.doubleJumpAbility = true
-    self.dashAbility =true
+    self.doubleJumpAbility = false
+    self.dashAbility =false
 
     -- Double Jump
     self.doubleJumpAvailable = true
@@ -53,7 +53,7 @@ end
 
 function Player:collisionResponse(other)
     local tag = other:getTag()
-    if tag == TAGS.Hazard then
+    if tag == TAGS.Hazard or tag == TAGS.Pickup then
         return gfx.sprite.kCollisionTypeOverlap
     end
     return gfx.sprite.kCollisionTypeSlide
@@ -119,6 +119,8 @@ function Player:handleMovementAndCollisions()
 
         if collisionTag == TAGS.Hazard then
             died = true
+        elseif collisionTag == TAGS.Pickup then
+            collisionObject:pickUp(self)
         end
     end
 

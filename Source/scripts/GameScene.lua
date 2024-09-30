@@ -1,3 +1,4 @@
+local pd <const> = playdate
 local gfx <const> = playdate.graphics
 local ldtk <const> = LDtk
 
@@ -17,7 +18,7 @@ ldtk.load("levels/world.ldtk", false)
 
 class("GameScene").extends()
 
-function GameScene:init()
+function GameScene:init() 
     self:goToLevel("Level_0")
     self.spawnX = 12 * 16
     self.spawnY = 5 * 16

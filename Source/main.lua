@@ -24,6 +24,8 @@ local pd <const> = playdate
 local gfx <const> = playdate.graphics
 
 function pd.update()
+	-- For Gridview testing
+	-- gridview:drawInRect(100, 70, 200, 100)
 	gfx.sprite.update()
 	pd.timer.updateTimers()
 end

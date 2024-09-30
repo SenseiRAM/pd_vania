@@ -8,6 +8,14 @@ function Menu:init(menuX, menuY)
 
     gridview:setNumberOfColumns(8)
     gridview:setNumberOfRows(6)
+
+    function gridview:drawCell()
+        gfx.drawCircleInRect(x, y, width, height)
+    end
+end
+
+function Menu:update()
+    gridview:drawInRect(100, 70, 200, 100)
 end
 
 function pd.update()
